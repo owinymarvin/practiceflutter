@@ -5,9 +5,13 @@ const startAlignment = Alignment.topCenter;
 const endAlignment = Alignment.bottomCenter;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key, required this.colors});
+  GradientContainer({super.key, required this.colors});
 
   final List<Color> colors;
+
+  void rollDice() {}
+
+  var currentDiceFace = 'assets/images/dice/dice-1.png';
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +31,27 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: Image(image: AssetImage('assets/images/dice/dice-1.png')),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image(
+              image: AssetImage('assets/images/dice/dice-1.png'),
+              width: 200,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextButton(
+              onPressed: rollDice,
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: TextStyle(fontSize: 28),
+              ),
+              child: Text('Roll Dice'),
+            )
+          ],
+        ),
         /* was our custom widget
 
         child: WhiteTextStyle('Haq Haq. i want this word in white'),
