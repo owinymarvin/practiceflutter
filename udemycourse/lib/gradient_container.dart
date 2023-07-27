@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:udemycourse/text%20styles/white_text_style.dart';
+import 'package:udemycourse/dice_roller.dart';
 
 const startAlignment = Alignment.topCenter;
 const endAlignment = Alignment.bottomCenter;
@@ -8,10 +9,6 @@ class GradientContainer extends StatelessWidget {
   GradientContainer({super.key, required this.colors});
 
   final List<Color> colors;
-
-  void rollDice() {}
-
-  var currentDiceFace = 'assets/images/dice/dice-1.png';
 
   @override
   Widget build(BuildContext context) {
@@ -31,33 +28,7 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image(
-              image: AssetImage('assets/images/dice/dice-1.png'),
-              width: 200,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextButton(
-              onPressed: rollDice,
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: TextStyle(fontSize: 28),
-              ),
-              child: Text('Roll Dice'),
-            )
-          ],
-        ),
-        /* was our custom widget
-
-        child: WhiteTextStyle('Haq Haq. i want this word in white'),
-
-        */
-      ),
+      child: DiceRoller(),
     );
   }
 }
